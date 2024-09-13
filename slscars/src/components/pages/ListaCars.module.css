@@ -1,0 +1,15 @@
+.lista{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 500px;
+    background-color: rgb(255, 251, 243);
+
+
+
+}
+.lista h1{
+    color: black;
+}
