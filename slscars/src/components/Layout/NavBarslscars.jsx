@@ -20,7 +20,7 @@ const NavBar = () =>{
         </Link>
 
         <Link to='/CreateUserColab'>
-            <li className={style.fund}>CADASTRAR COLABORADORES</li>
+            <li className={style.fund}>CADASTRAR CLIENTES</li>
         </Link>
 
         <Link to='/CreateCarssls'>

@@ -10,6 +10,7 @@ function Input({type,name,text,placeHolder}){
             name={name}
             id={name}
             placeholder={placeHolder}
+           
          />
 
             
