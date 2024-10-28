@@ -13,7 +13,7 @@ const CreateUserColab = () => {
         console.log(clientes);
     }
 
-    function submitCreateUserColab(clientes) {  // Renomeado para evitar conflito com o componente
+    function submitCreateUserColab(clientes) {  
         console.log(JSON.stringify(clientes));
 
         fetch('http://localhost:5490/inserirUsuario', {
@@ -52,7 +52,7 @@ const CreateUserColab = () => {
                     id="nome_cliente"
                     placeholder="Digite o nome do cliente"
                     text="Digite o nome do cliente:"
-                    onChange={handlerChangeCliente}  // Alterado para onChange
+                    onChange={handlerChangeCliente} 
                 />
 
                 <Input
@@ -61,7 +61,7 @@ const CreateUserColab = () => {
                     id="email"
                     placeholder="Digite o email do cliente"
                     text="Digite o email do cliente:"
-                    onChange={handlerChangeCliente}  // Alterado para onChange
+                    onChange={handlerChangeCliente} 
                 />
 
                 <Input
@@ -70,7 +70,7 @@ const CreateUserColab = () => {
                     id="telefone"
                     placeholder="Digite o telefone do cliente"
                     text="Telefone:"
-                    onChange={handlerChangeCliente}  // Alterado para onChange
+                    onChange={handlerChangeCliente}  
                 />
 
                 <Button rotulo="Cadastrar Cliente" />
