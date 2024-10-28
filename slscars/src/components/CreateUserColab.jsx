@@ -1,8 +1,7 @@
-
 import React, { useState } from "react"; 
 import style from "./CreateUserColab.module.css";
-import Input from "./forms/Input";
-import Button from "./forms/Button";
+import Input from "./formsCars/InputC";
+import Button from "./formsCars/ButtonC";
 import { useNavigate } from "react-router-dom"; 
 
 const CreateUserColab = () => {
@@ -14,7 +13,7 @@ const CreateUserColab = () => {
         console.log(clientes);
     }
 
-    function CreateUserColab(clientes) {
+    function submitCreateUserColab(clientes) {  // Renomeado para evitar conflito com o componente
         console.log(JSON.stringify(clientes));
 
         fetch('http://localhost:5490/inserirUsuario', {
@@ -30,7 +29,7 @@ const CreateUserColab = () => {
         .then((resp) => resp.json())
         .then((data) => {
             console.log(data);
-            //  navigate('/cliente', { state: 'CLIENTE CADASTRADO COM SUCESSO!' });
+            // navigate('/cliente', { state: 'CLIENTE CADASTRADO COM SUCESSO!' });
         })
         .catch((err) => {
             console.log(err);
@@ -39,15 +38,7 @@ const CreateUserColab = () => {
 
     function submit(event) {
         event.preventDefault();
-    
-        if (!clientes.nome_cliente || !clientes.email) {
-            alert("Nome e Email são obrigatórios!");
-            return;
-        }
-        console.log("Dados a serem enviados:", clientes);
-        CreateUserColab(clientes);
-
-
+        submitCreateUserColab(clientes);
     }
 
     return (
@@ -55,35 +46,34 @@ const CreateUserColab = () => {
             <h1>CADASTRO DE CLIENTES</h1>
 
             <form onSubmit={submit}>
-            <Input
-            
-                type='text'
-                name='nome_cliente' 
-                id='nome_cliente'
-                placeholder='Digite o nome do cliente'
-                text='Digite o nome do cliente : '
-                handlerOnchange={handlerChangeCliente}
-            />
+                <Input
+                    type="text"
+                    name="nome_cliente"
+                    id="nome_cliente"
+                    placeholder="Digite o nome do cliente"
+                    text="Digite o nome do cliente:"
+                    onChange={handlerChangeCliente}  // Alterado para onChange
+                />
 
-            <Input 
-                type='email'
-                name='email'  
-                id='email'
-                placeholder='Digite o email do cliente'
-                text='Digite o email do cliente :'
-                handlerOnchange={handlerChangeCliente}
-            />
+                <Input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Digite o email do cliente"
+                    text="Digite o email do cliente:"
+                    onChange={handlerChangeCliente}  // Alterado para onChange
+                />
 
-             <Input 
-                type='number'
-                name='telefone'  
-                id='telefone'
-                placeholder='Digite o telefone do cliente'
-                text='Telefone :'
-                handlerOnchange={handlerChangeCliente}
-          />
+                <Input
+                    type="number"
+                    name="telefone"
+                    id="telefone"
+                    placeholder="Digite o telefone do cliente"
+                    text="Telefone:"
+                    onChange={handlerChangeCliente}  // Alterado para onChange
+                />
 
-                <Button rotulo="Cadastrar Cliente" />  
+                <Button rotulo="Cadastrar Cliente" />
             </form>
         </section>
     );
