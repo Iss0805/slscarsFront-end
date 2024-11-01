@@ -28,10 +28,14 @@ const NavBar = () =>{
 
         </Link>
 
-        <Link to='/ListaCars'>
+        <Link to='/ListCars'>
             <li className={style.fund}>LISTA CARROS</li>
         </Link>
 
+        
+        <Link to='/CardCars'>
+            <li className={style.fund}>CARD CARROS</li>
+        </Link>
 
 
 

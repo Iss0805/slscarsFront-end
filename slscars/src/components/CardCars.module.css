@@ -1,0 +1,25 @@
+.cardCars{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    border-radius: 5px;
+    width: max-content;
+    padding: 5px;
+    margin: 5px;
+    background-color: #DEDEDE;
+    border: 1px solid #CCC;
+    font-family: Helvetica;   
+}
+
+.placa{
+    font-size: 12px;
+}
+
+.modelo{
+    font-size: 10px;
+}
+
+img{
+    width: 80px;
+    border-radius: 5px;
+}

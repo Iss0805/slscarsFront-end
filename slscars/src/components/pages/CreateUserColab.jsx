@@ -1,12 +1,10 @@
-import React, { useState } from "react"; 
+import { useState } from "react";
 import style from "./CreateUserColab.module.css";
-import Input from "./formsCars/InputC";
-import Button from "./formsCars/ButtonC";
-import { useNavigate } from "react-router-dom"; 
+import Input from "../formsCars/InputC";
+import Button from "../formsCars/ButtonC";
 
 const CreateUserColab = () => {
     const [clientes, setClientes] = useState({}); 
-    // const navigate = useNavigate(); 
 
     function handlerChangeCliente(event) {
         setClientes({ ...clientes, [event.target.name]: event.target.value });
@@ -21,15 +19,12 @@ const CreateUserColab = () => {
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Headers': '*',
             },
             body: JSON.stringify(clientes),
         })
         .then((resp) => resp.json())
         .then((data) => {
             console.log(data);
-            // navigate('/cliente', { state: 'CLIENTE CADASTRADO COM SUCESSO!' });
         })
         .catch((err) => {
             console.log(err);
@@ -38,6 +33,11 @@ const CreateUserColab = () => {
 
     function submit(event) {
         event.preventDefault();
+        if (!clientes.nome_cliente || !clientes.email) {
+            alert("Nome e Email são obrigatórios!");
+            return;
+        }
+        console.log("Dados a serem enviados:", clientes);
         submitCreateUserColab(clientes);
     }
 
@@ -73,7 +73,7 @@ const CreateUserColab = () => {
                     onChange={handlerChangeCliente}  
                 />
 
-                <Button rotulo="Cadastrar Cliente" />
+                <Button rotulo="Cadastrar Cliente" type="submit" />
             </form>
         </section>
     );

@@ -1,5 +1,6 @@
 import styles from './InputC.module.css'
 
+// eslint-disable-next-line react/prop-types
 function Input({type,name,text,placeHolder,onChange}){
     return(
 

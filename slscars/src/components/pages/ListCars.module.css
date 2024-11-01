@@ -1,5 +1,5 @@
-.lista{
-    width: 100%;
+.list_cars{
+    width: 690PX;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,6 +10,6 @@
 
 
 }
-.lista h1{
+.list_cars h1{
     color: black;
 }
