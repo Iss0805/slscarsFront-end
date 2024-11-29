@@ -1,58 +1,75 @@
-.NavBar{
-    
+/* Reset global para evitar problemas de espaçamento */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.NavBar {
   display: flex;
-     justify-content: space-between;
-     background-color: rgb(0, 0, 0);
-     padding: 1px 0;
-     width: 100%;
-     text-align: center;
-     position: fixed; 
-     top: 0;
-     left: 0;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  padding: 10px 20px; /* Ajuste de espaçamento interno */
+  width: 100%;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Para garantir que a navbar fique sobre outros elementos */
+}
+
+/* Lista de navegação */
+.list {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 1em; /* Espaçamento controlado entre os itens */
+  background-color: black;
+  margin: 0; /* Remove espaçamento extra */
+}
+
+/* Estilo dos links */
+.fund {
+  margin-right: 1em;
+  color: #fff;
+  background-color: black;
+  text-decoration: none;
+  padding: 10px 15px;
  
- 
- 
- 
- }
- 
- 
- .list{
-     display: flex;
-     list-style: none;
-     align-items: center;
-     justify-content: space-between;
- }
- 
- 
- .fund{
-     margin-right: 1em;
-     color: #fff;
-     border-radius: 50%;
- }
- 
- .logo{
-     width: 140px;
-     
- }
- 
- 
- header nav ul { 
-   list-style: none;
-   text-transform: uppercase
- }
- 
- header nav li{
-   display: inline-block;
-   padding: 30px 15px;
- }
- 
- .style.fund{
-     
-   background-color: blueviolet;
-     color: #fff;
-     padding: 10px 15px;
-     transition: 0.4s;
-     cursor:pointer;
-     border-radius: 25px;
- 
- }
+  transition: background-color 0.4s;
+  cursor: pointer;
+}
+
+/* Fundo hover em links */
+.fund:hover {
+  background-color: deeppink;
+}
+
+/* Logo */
+.logo {
+  width: 140px;
+}
+
+/* Estilo dos itens da lista */
+header nav ul { 
+  list-style: none;
+  display: flex;
+  gap: 1em; /* Espaçamento entre os itens */
+  text-transform: uppercase;
+}
+
+header nav li {
+  padding: 0; /* Remove padding extra */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .NavBar {
+      flex-direction: column; /* Coloca os itens em uma coluna em telas menores */
+      align-items: flex-start;
+  }
+  .list {
+      flex-direction: column; /* A lista se ajusta para vertical */
+      gap: 0.5em; /* Reduz o espaçamento entre itens */
+  }
+}

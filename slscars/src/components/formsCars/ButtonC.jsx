@@ -1,15 +1,13 @@
-import styles from  '../formsCars/ButtonC.module.css'
+import styles from '../formsCars/ButtonC.module.css';
 
-function Button({rotulo}){
-    return(
-
-        <div className={styles.button}>
-           <button>{rotulo}</button>
-        </div>
-
-
-
-    )
+// eslint-disable-next-line react/prop-types
+function Button({ rotulo }) {
+    return (
+        <button className={styles.button}>
+            
+            {rotulo}
+        </button>
+    );
 }
 
-export default Button
+export default Button;

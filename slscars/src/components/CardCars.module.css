@@ -1,22 +1,41 @@
-.cardCars{
-    display: flex;
-    flex-direction:column;
-    align-items: center;
+/* CardCars.module.css */
+.cardCars {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.email {
+    font-size: 1rem;
+    color: #555;
+}
+
+.placa {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.modelo {
+    font-size: 1.2rem;
+    color: #777;
+}
+
+Button {
+    padding: 10px 20px;
+    background-color: #3498db; 
+    color: white;
+    border: none;
     border-radius: 5px;
-    width: max-content;
-    padding: 5px;
-    margin: 5px;
-    background-color: #DEDEDE;
-    border: 1px solid #CCC;
-    font-family: Helvetica;   
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
-.placa{
-    font-size: 12px;
-}
-
-.modelo{
-    font-size: 10px;
+.button:hover {
+    background-color: #2980b9; 
 }
 
 img{

@@ -9,44 +9,30 @@ const CreateCarssls = () => {
         modelo: '',
         cliente_id: '',
         email: ''
-    }); 
+    });
 
     function handlerChangeCarros(event) {
-        setCarros({ ...carros, [event.target.name]: event.target.value });
-        console.log(carros);
-    }
-
-    function submitCreateCarros(carros) {  
-        console.log(JSON.stringify(carros));
-
-        fetch('http://localhost:5490/inserirCarros', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(carros),
-        })
-        .then((resp) => resp.json())
-        .then((data) => {
-            console.log(data);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+        const { name, value } = event.target;
+        setCarros({ ...carros, [name]: value });
     }
 
     function submit(event) {
         event.preventDefault();
-        const { placa, modelo, cliente_id, email } = carros;
-        
-        if (!placa || !modelo || !cliente_id || !email) {
-            alert("Placa, modelo, ID do cliente e email são obrigatórios!");
+        if (!carros.placa || !carros.modelo || !carros.cliente_id || !carros.email) {
+            alert("Todos os campos são obrigatórios!");
             return;
         }
 
-        console.log("Dados a serem enviados:", carros);
-        submitCreateCarros(carros);
+        fetch('http://localhost:5490/inserirCarros', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(carros),
+        })
+        .then((resp) => resp.json())
+        .then((data) => console.log(data,
+            alert('Carro cadastrado com sucesso!')
+        ))
+        .catch((err) => console.error(err));
     }
 
     return (
@@ -61,6 +47,7 @@ const CreateCarssls = () => {
                     placeholder="Digite a placa do seu carro aqui"
                     text="Placa do Carro"
                     onChange={handlerChangeCarros} 
+                    value={carros.placa} // Campo controlado
                 />
                 
                 <Input 
@@ -70,6 +57,7 @@ const CreateCarssls = () => {
                     placeholder="Digite o modelo do carro"
                     text="Modelo do carro"
                     onChange={handlerChangeCarros} 
+                    value={carros.modelo} // Campo controlado
                 />
                 
                 <Input 
@@ -79,6 +67,7 @@ const CreateCarssls = () => {
                     placeholder="Digite o Id do cliente"
                     text="ID do cliente"
                     onChange={handlerChangeCarros} 
+                    value={carros.cliente_id} // Campo controlado
                 />
                 
                 <Input 
@@ -88,6 +77,7 @@ const CreateCarssls = () => {
                     placeholder="Digite o email do cliente"
                     text="Email do cliente"
                     onChange={handlerChangeCarros} 
+                    value={carros.email} // Campo controlado
                 />
                 
                 <Button
